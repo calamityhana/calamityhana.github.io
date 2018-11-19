@@ -1,2 +1,2 @@
-Демонстрационный проект. Gulp, jquerry, sass. Ссылка:
+Демонстрационный проект. Gulp, jquery, sass. Ссылка:
 https://calamityhana.github.io/ 
