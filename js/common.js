@@ -49,6 +49,38 @@ API.bind( "close:finish", function() {
 
 	});
 
+	$('.reviews').owlCarousel({  // Настройки карусели
+		loop: true, //Бесконечная прокрутка
+		smartSpeed: 700,  //Скорость прокручивания
+		responsiveClass: true,  //Адаптивность карусели
+		dots: true,  //Включили доты 
+		items: 1,
+		autoHeight: true,
+	});
+
+	$('.partners').owlCarousel({  // Настройки карусели
+		loop: true, //Бесконечная прокрутка
+		nav: true,  //Кнопки навигации
+		smartSpeed: 800,  //Скорость прокручивания
+		navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],  //Иконки кнопок навигации
+		responsiveClass: true,  //Адаптивность карусели
+		dots: false,  //Отключили доты 
+		responsive: {
+			0: {  //Минимальное разрешение
+				items: 1  //Количество айтемов
+			},
+			768: {
+				items: 2
+			},
+			900: {
+				items: 3
+			},
+			1200: {
+				items: 4
+			}
+		},
+	});
+
 	function carouselServise() {  //Функция для задачи высоты изображению
 		$('.carousel-services-item').each(function() {
 			var ths 	= $(this),
@@ -68,6 +100,18 @@ API.bind( "close:finish", function() {
 	});
 
 	$('select').selectize();  //Подключаем селектайз
+
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > $(this).height()) {
+			$('.top').addClass('active');
+		} else {
+			$('.top').removeClass('active');
+		}
+	});
+
+	$('.top').click(function() {
+		$('html, body').stop().animate({scrollTop: 0}, 'slow', 'swing');
+	});
 
 	//E-mail Ajax Send Cкрипт UniMail
 	$("form.callback").submit(function() { //Change
@@ -95,4 +139,8 @@ API.bind( "close:finish", function() {
 		carouselServise();
 	};
 
+});
+
+$(window).on('load', function() {
+	$('.preloader').delay(2000).fadeOut('slow');
 });
